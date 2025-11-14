@@ -1,0 +1,866 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ecb713;
+    --bg-black: #000000;
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --border-gray: #333333;
+    --transition: all 0.3s ease;
+    --grid-color: rgba(255, 255, 255, 0.03);
+    --grid-size: 40px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-white);
+    overflow-x: hidden;
+    background-color: var(--bg-black);
+    position: relative;
+}
+
+/* Drawing Grid Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content appears above grid */
+.navbar,
+.portfolio-section,
+.about-section,
+.social-dock,
+.credits-footer,
+.lightbox {
+    position: relative;
+    z-index: 10;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Navbar - Angular Style with Bigger Elements */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-black);
+    border-bottom: 2px solid var(--border-gray);
+    padding: 25px 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex: 1;
+}
+
+.logo-link {
+    display: block;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    transform: scale(1.15);
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    transition: var(--transition);
+    filter: brightness(1);
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.btn-contact {
+    background: var(--primary-color);
+    color: var(--bg-black);
+    padding: 16px 36px;
+    border-radius: 0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-contact:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 160px 0 80px;
+    min-height: 100vh;
+}
+
+.main-title {
+    font-size: 5.5rem;
+    font-weight: 300;
+    text-align: left;
+    color: var(--text-white);
+    margin-bottom: 70px;
+    letter-spacing: -2px;
+}
+
+/* Portfolio Filters - Square Angular Buttons with Yellow Active State */
+.portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.filter-button {
+    border: 3px solid var(--border-gray);
+    border-radius: 0;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.filter-button::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px solid transparent;
+    transition: var(--transition);
+}
+
+.filter-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.filter-button.is-active {
+    background: var(--primary-color);
+    color: var(--bg-black);
+    border-color: var(--primary-color);
+}
+
+/* Portfolio Gallery - Masonry Grid */
+.portfolio-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.portfolio-column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    border: 2px solid var(--border-gray);
+    transition: var(--transition);
+    cursor: zoom-in;
+    background: var(--bg-black);
+}
+
+.portfolio-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.portfolio-item:hover img {
+    opacity: 0.85;
+}
+
+/* Social Dock - Angular Version with Brand-Accurate Gradient Hover */
+.social-dock {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: var(--bg-black);
+    border: 2px solid var(--border-gray);
+    padding: 12px;
+    border-radius: 50px;
+    z-index: 999;
+}
+
+.dock-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 22px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--border-gray);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.dock-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Instagram gradient - classic Instagram colors */
+.dock-icon:nth-child(1)::after {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* YouTube gradient - YouTube red */
+.dock-icon:nth-child(2)::after {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+}
+
+/* Contact/Email gradient - Yellow (matching primary color) */
+.dock-icon:nth-child(3)::after {
+    background: linear-gradient(135deg, #ecb713, #d4a310);
+}
+
+/* TikTok gradient - TikTok cyan/pink */
+.dock-icon:nth-child(4)::after {
+    background: linear-gradient(135deg, #00f2ea, #ff0050);
+}
+
+/* Twitter/X gradient - Twitter blue */
+.dock-icon:nth-child(5)::after {
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+}
+
+.dock-icon:hover {
+    border-color: transparent;
+    color: var(--text-white);
+    transform: translateY(-5px) scale(1.08);
+}
+
+.dock-icon:hover::after {
+    opacity: 1;
+}
+
+.dock-icon i {
+    position: relative;
+    z-index: 1;
+}
+
+/* Lightbox - Angular Dark */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.lightbox.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.lightbox-content {
+    position: relative;
+    background: var(--bg-black);
+    border: 2px solid var(--border-gray);
+    border-radius: 0;
+    max-width: 1200px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.lightbox-body {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 40px;
+}
+
+.lightbox-image-wrapper {
+    flex: 1.5;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-black);
+}
+
+.lightbox-image-wrapper img {
+    max-width: 100%;
+    max-height: 75vh;
+    display: block;
+    border: 2px solid var(--border-gray);
+}
+
+.lightbox-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-white);
+}
+
+.lightbox-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-white);
+}
+
+.lightbox-description {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+.lightbox-categories {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid var(--border-gray);
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.lightbox-close:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* About Section - Angular Dark with Fixed Alignment */
+.about-section {
+    padding: 160px 0 80px;
+    min-height: 100vh;
+}
+
+.section-subtitle {
+    font-size: 3.5rem;
+    font-weight: 300;
+    text-align: left;
+    color: var(--text-white);
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+
+.about-content {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+.about-image-block {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-image {
+    width: 100%;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--border-gray);
+    display: block;
+}
+
+.about-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.about-logo img {
+    width: 80%;
+    height: auto;
+    max-width: 300px;
+}
+
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+}
+
+.about-quote {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    font-style: italic;
+    color: var(--text-gray);
+    padding: 30px 0 30px 30px;
+    border-left: 3px solid var(--primary-color);
+    margin: 0 0 30px 0;
+}
+
+.contact-block {
+    padding: 40px;
+    background: var(--bg-black);
+    border: 2px solid var(--border-gray);
+    margin: 0;
+}
+
+.contact-block h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: var(--text-white);
+}
+
+.contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    background: transparent;
+    border: 2px solid var(--border-gray);
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.contact-link i {
+    font-size: 1.3rem;
+    width: 30px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* CV Section - Angular Cards */
+.cv-section {
+    margin-top: 100px;
+    padding: 60px 0;
+}
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.cv-block {
+    background: var(--bg-black);
+    padding: 40px 30px;
+    border: 2px solid var(--border-gray);
+    transition: var(--transition);
+}
+
+.cv-block:hover {
+    border-color: var(--primary-color);
+}
+
+.cv-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 0 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.cv-block > h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: var(--text-white);
+}
+
+.cv-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.cv-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.cv-item:first-child {
+    padding-top: 0;
+}
+
+.cv-item h4 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text-white);
+}
+
+.cv-date {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.cv-item > p:last-child {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Credits Footer */
+.credits-footer {
+    position: fixed;
+    right: 20px;
+    bottom: 12px;
+    font-size: 0.75rem;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.credits-footer a {
+    color: var(--text-gray);
+    text-decoration: none;
+    pointer-events: auto;
+    transition: var(--transition);
+}
+
+.credits-footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .nav-container {
+        padding: 0 30px;
+    }
+    
+    .main-title {
+        font-size: 4rem;
+    }
+    
+    .section-subtitle {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+    
+    .section-subtitle {
+        font-size: 2.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-image-block {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .nav-center {
+        gap: 30px;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+    }
+    
+    .btn-contact {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    .social-dock {
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .dock-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .lightbox-body {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .lightbox-image-wrapper {
+        max-height: 50vh;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --grid-size: 30px;
+    }
+    
+    .navbar {
+        padding: 20px 0;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .btn-contact {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .portfolio-filters {
+        gap: 10px;
+    }
+    
+    .filter-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+/* ==========================================
+   CSS FIXES FOR MOBILE AND DESKTOP ALIGNMENT
+   ========================================== */
+
+/* FIX 1: Prevent "À propos" from breaking into two lines on mobile */
+.nav-link {
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* FIX 2: Center the navigation menu on mobile */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: center; /* Center the entire nav container */
+    }
+
+    .nav-left {
+        position: absolute;
+        left: 20px;
+    }
+
+    .nav-center {
+        justify-content: center;
+        flex: 0 1 auto; /* Don't stretch */
+    }
+
+    .nav-right {
+        position: absolute;
+        right: 20px;
+    }
+}
+
+/* FIX 3: Center-align footer credit on mobile */
+@media (max-width: 768px) {
+    .credits-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 12px;
+        text-align: center;
+        /* Remove the right: 20px that was pushing it to the side */
+    }
+}
+
+/* FIX 4: Ensure consistent left alignment on desktop for both portfolio and about pages */
+/* The container should have the same padding and max-width on both pages */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Ensure portfolio section and about section have same top padding and alignment */
+.portfolio-section,
+.about-section {
+    padding: 160px 0 80px;
+    min-height: 100vh;
+}
+
+/* Make sure titles align consistently */
+.main-title,
+.section-subtitle {
+    margin-left: 0; /* Remove any left margin that might differ */
+    padding-left: 0; /* Remove any left padding that might differ */
+}
+
+/* Ensure the about-content and portfolio elements start at the same left position */
+.about-content {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.portfolio-filters {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.portfolio-gallery {
+    margin-left: 0;
+    padding-left: 0;
+}

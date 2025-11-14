@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XeLi / Galad Ivars - Illustrator & Designer</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/img/LOGO-white.svg" alt="XeLi Logo" class="logo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="about.html" class="nav-link">À propos</a>
+            </div>
+            <div class="nav-right">
+                <a href="about.html#contact" class="btn-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <h1 class="main-title">Portfolio ▐</h1>
+
+            <div class="portfolio-filters" id="portfolioFilters">
+                <button type="button" class="filter-button" data-category="Tout voir">Tout voir</button>
+                <button type="button" class="filter-button" data-category="Character Design">Character Design</button>
+                <button type="button" class="filter-button" data-category="Props Design">Props Design</button>
+                <button type="button" class="filter-button" data-category="Background Design">Background Design</button>
+                <button type="button" class="filter-button" data-category="Sketches">Sketches</button>
+            </div>
+            
+            <div class="portfolio-gallery" id="portfolioGallery"></div>
+        </div>
+    </section>
+
+    <div class="social-dock">
+        <a href="https://instagram.com" target="_blank" class="dock-icon" data-tooltip="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="dock-icon" data-tooltip="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="about.html#contact" class="dock-icon" data-tooltip="Contact">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://tiktok.com" target="_blank" class="dock-icon" data-tooltip="TikTok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="dock-icon" data-tooltip="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+
+    <footer class="credits-footer">
+        <a href="https://mthv.rs" target="_blank" rel="noopener noreferrer">
+            Conception - mthv.rs / Tous droits réservés
+        </a>
+    </footer>
+
+    <div class="lightbox" id="portfolioLightbox" aria-hidden="true">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+            <button class="lightbox-close" type="button" aria-label="Fermer">&times;</button>
+            <div class="lightbox-body">
+                <div class="lightbox-image-wrapper">
+                    <img src="" alt="" data-lightbox-image>
+                </div>
+                <div class="lightbox-details">
+                    <h2 class="lightbox-title" id="lightboxTitle" data-lightbox-title></h2>
+                    <p class="lightbox-description" data-lightbox-description></p>
+                    <p class="lightbox-categories" data-lightbox-categories></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/images-data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
