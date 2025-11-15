@@ -8,6 +8,12 @@ const portfolioImages = [
         categories: ["Character Design","Sketches"]
     },
     {
+        src: "assets/img/portfolio/1.jpg",
+        title: "Enchanted Forest Path",
+        description: "Background concept for a fantasy animation in a lush, magical forest.",
+        categories: ["Background Design","Illustration"]
+    },
+    {
         src: "assets/img/portfolio/2.jpg",
         title: "Enchanted Forest Path",
         description: "Background concept for a fantasy animation in a lush, magical forest.",
@@ -110,6 +116,7 @@ const portfolioImages = [
         categories: ["Background Design"]
     }
 ];
+
 
 
 
