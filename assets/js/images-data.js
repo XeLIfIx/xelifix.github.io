@@ -2,7 +2,7 @@
 // Categories: "Character Design", "Props Design", "Background Design", "Sketches"
 const portfolioImages = [
     {
-        src: "assets/img/face.png",
+        src: "assets/img/portfolio/face.png",
         title: "XeLi",
         description: "self-portrait",
         categories: ["Character Design","Sketches"]
