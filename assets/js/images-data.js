@@ -1,11 +1,11 @@
-// Portfolio images data with title, description and categories
+.// Portfolio images data with title, description and categories
 // Categories: "Character Design", "Props Design", "Background Design", "Sketches"
 const portfolioImages = [
     {
-        src: "assets/img/portfolio/1.jpg",
-        title: "Mystic Warrior",
-        description: "Character concept illustration with glowing armor and dynamic posing.",
-        categories: ["Character Design"]
+        src: "assets/img/portfolio/face.png",
+        title: "XeLi",
+        description: "self-portrait",
+        categories: ["Character Design","Sketches"]
     },
     {
         src: "assets/img/portfolio/2.jpg",
@@ -110,4 +110,5 @@ const portfolioImages = [
         categories: ["Background Design"]
     }
 ];
+
 
