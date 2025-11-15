@@ -2,7 +2,7 @@
 // Categories: "Character Design", "Props Design", "Background Design", "Sketches"
 const portfolioImages = [
     {
-        src: "assets/img/portfolio/face.png",
+        src: "assets/img/face.png",
         title: "XeLi",
         description: "self-portrait",
         categories: ["Character Design","Sketches"]
@@ -110,5 +110,6 @@ const portfolioImages = [
         categories: ["Background Design"]
     }
 ];
+
 
 
