@@ -2,12 +2,6 @@
 // Categories: "Character Design", "Props Design", "Background Design", "Sketches"
 const portfolioImages = [
     {
-        src: "assets/img/face.png",
-        title: "XeLi",
-        description: "self-portrait",
-        categories: ["Character Design","Sketches"]
-    },
-    {
         src: "assets/img/portfolio/1.jpg",
         title: "Enchanted Forest Path",
         description: "Background concept for a fantasy animation in a lush, magical forest.",
@@ -116,6 +110,7 @@ const portfolioImages = [
         categories: ["Background Design"]
     }
 ];
+
 
 
 
